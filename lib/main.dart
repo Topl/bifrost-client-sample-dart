@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'dart:convert';
 
+import 'package:fast_base58/fast_base58.dart';
 import 'package:flutter/material.dart';
 import 'package:topl_common/proto/node/models/block.pb.dart';
 import 'package:topl_common/proto/node/services/bifrost_rpc.pbgrpc.dart';
@@ -89,8 +89,7 @@ class _BlockchainPageState extends State<BlockchainPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // TODO: Base58
-                  Text(base64Encode(blocks[index].header.headerId.value)),
+                  Text(Base58Encode(blocks[index].header.headerId.value)),
                   Text("Height: ${blocks[index].header.height}"),
                   Text("Slot: ${blocks[index].header.slot}"),
                   Text("Timestamp: ${blocks[index].header.timestamp}"),
